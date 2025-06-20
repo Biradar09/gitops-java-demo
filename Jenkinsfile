@@ -22,12 +22,12 @@ pipeline {
     }
 
     stage('SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('SonarQube') {
-          sh "${SCANNER_HOME}/bin/sonar-scanner"
-        }
-      }
+  steps {
+    withSonarQubeEnv('SonarQube') {
+      sh 'mvn sonar:sonar'
     }
+  }
+}
 
     stage('Build Docker Image') {
       steps {
