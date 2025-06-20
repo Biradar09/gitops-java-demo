@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    maven 'maven-3'
+  }
   environment {
     IMAGE_NAME = "saikiranbiradar/helloapp:${BUILD_NUMBER}"
     SCANNER_HOME = tool 'sonar-scanner'
@@ -11,9 +14,6 @@ pipeline {
         git branch: 'main', url: 'https://github.com/Biradar09/gitops-java-demo.git'
       }
     }
-    tools {
-    maven 'maven-3'
-  }
 
     stage('Build with Maven') {
       steps {
