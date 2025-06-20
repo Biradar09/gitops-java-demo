@@ -11,6 +11,9 @@ pipeline {
         git branch: 'main', url: 'https://github.com/Biradar09/gitops-java-demo.git'
       }
     }
+    tools {
+    maven 'maven-3'
+  }
 
     stage('Build with Maven') {
       steps {
