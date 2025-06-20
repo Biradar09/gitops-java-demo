@@ -1,14 +1,14 @@
 pipeline {
   agent any
   environment {
-    IMAGE_NAME = "yourdockerhubusername/helloapp:${BUILD_NUMBER}"
+    IMAGE_NAME = "saikiranbiradar/helloapp:${BUILD_NUMBER}"
     SCANNER_HOME = tool 'sonar-scanner'
   }
 
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/<your-username>/gitops-java-demo.git'
+        git branch: 'main', url: 'https://github.com/Biradar09/gitops-java-demo.git'
       }
     }
 
