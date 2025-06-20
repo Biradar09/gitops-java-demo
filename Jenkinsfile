@@ -2,11 +2,11 @@ pipeline {
   agent any
   tools {
     maven 'maven-3'
-    sonarScanner 'sonar-scanner'
+  
   }
   environment {
     IMAGE_NAME = "saikiranbiradar/helloapp:${BUILD_NUMBER}"
-    SCANNER_HOME = tool 'sonar-scanner'
+    SCANNER_HOME = tool 'SonarQube'
   }
 
   stages {
