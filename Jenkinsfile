@@ -1,12 +1,12 @@
 pipeline {
   agent any
+
   tools {
-    maven 'maven-3'
-  
+    maven 'maven-3' // Make sure 'maven-3' is configured in Jenkins -> Global Tool Configuration
   }
+
   environment {
     IMAGE_NAME = "saikiranbiradar/helloapp:${BUILD_NUMBER}"
-    SCANNER_HOME = tool 'SonarQube'
   }
 
   stages {
@@ -23,12 +23,12 @@ pipeline {
     }
 
     stage('SonarQube Analysis') {
-  steps {
-    withSonarQubeEnv('SonarQube') {
-      sh 'mvn sonar:sonar'
+      steps {
+        withSonarQubeEnv('SonarQube') { // 'SonarQube' must match the name configured in Jenkins -> Configure System
+          sh 'mvn sonar:sonar'
+        }
+      }
     }
-  }
-}
 
     stage('Build Docker Image') {
       steps {
