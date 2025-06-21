@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    maven 'maven-3' // Make sure 'maven-3' is configured in Jenkins -> Global Tool Configuration
+    maven 'maven' // Make sure 'maven-3' is configured in Jenkins -> Global Tool Configuration
   }
 
   environment {
